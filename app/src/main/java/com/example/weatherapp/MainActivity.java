@@ -53,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
         String temperature = null;
-        double pressure = 0;
+
         try {
             JSONObject jsonObject = new JSONObject(result.toString());
             JSONObject mainObject = jsonObject.getJSONObject("main");
             double temp = mainObject.getDouble("temp");
-            pressure = mainObject.getDouble("pressure");
+
 
             temp = temp - 273.15;
             DecimalFormat df = new DecimalFormat("#.00");
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return "Temperature:" + temperature + "°C" +"\n" + "Pressure: " + String.valueOf(pressure) + " hPa";
+        return "Temperature:" + temperature + "°C";
     }
 
     @Override
